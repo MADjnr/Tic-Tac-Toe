@@ -12,51 +12,51 @@ class TicTacToeGame:
         print(" Welcome to Tic-Tac-Toe  ")
         print("*****************************")
 
-    board = Board()
-    human_player = Player()
-    computer = Player(False)
+        board = Board()
+        human_player = Player()
+        computer = Player(False)
 
-    #1111board.print_board() #this line of code is to show the board
+        #1111board.print_board() #this line of code is to show the board
 
 
-    ##This while loop will ask the user if he/she would like to play another round
-    while True:
-        ###i commented out the 111board so that i can implement it here instantly before another round begins
-
-        ###This second while loop is the logic of the game
-        ## here i will check the tie, check game over and other functionalities
+        ##This while loop will ask the user if he/she would like to play another round
         while True:
-            player_move = human_player.get_move() # this is the fer move method
-            board.submit_move(human_player, player_move)
-            board.print_board()
+            ###i commented out the 111board so that i can implement it here instantly before another round begins
 
-            if board.check_is_tie(): #if there was a tie, then this will be true
-                print("It is a tie! Try again.")
-                break
-            elif board.check_is_game_over(human_player, player_move):## we have to check it with the last move
-                print("Awesome. You won the game!")
-                break
-            else:
-                computer_move = computer.get_move()
-                board.submit_move(computer, computer_move)
+            ###This second while loop is the logic of the game
+            ## here i will check the tie, check game over and other functionalities
+            while True:
+                player_move = human_player.get_move() # this is the fer move method
+                board.submit_move(human_player, player_move)
                 board.print_board()
 
-                ##the else condition above shows that the computer won, so if that is true, then the following condition follows
-                if board.check_is_game_over(computer, computer_move):
-                    print("ooops!... The computer won. Try again.")
+                if board.check_is_tie(): #if there was a tie, then this will be true
+                    print("It is a tie! Try again.")
                     break
+                elif board.check_is_game_over(human_player, player_move):## we have to check it with the last move
+                    print("Awesome. You won the game!")
+                    break
+                else:
+                    computer_move = computer.get_move()
+                    board.submit_move(computer, computer_move)
+                    board.print_board()
 
-        play_again = input("would you like to play again? Enter X for YES or O for NO: ").upper()
+                    ##the else condition above shows that the computer won, so if that is true, then the following condition follows
+                    if board.check_is_game_over(computer, computer_move):
+                        print("ooops!... The computer won. Try again.")
+                        break
 
-        if play_again == 'O':
-            print("Bye! come back soon")
-            break
-        elif play_again == "X":
-            self.start_new_round(board)
-        else:
-            print('Your input was not valid but i will assume that you want to play again.')
+            play_again = input("would you like to play again? Enter X for YES or O for NO: ").upper()
 
-    ##HInt: the first loop in charge of the Game, while the second loop should be in charge of the ROund
+            if play_again == 'O':
+                print("Bye! come back soon")
+                break
+            elif play_again == "X":
+                self.start_new_round(board)
+            else:
+                print('Your input was not valid but i will assume that you want to play again.')
+
+        ##HInt: the first loop in charge of the Game, while the second loop should be in charge of the ROund
 
 
     def start_new_round(self, board):
