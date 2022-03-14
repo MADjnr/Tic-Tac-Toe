@@ -1,7 +1,6 @@
 
 from  player import Player
 from player import  Player
-from move import Move
 
 
 class Board:
@@ -27,7 +26,7 @@ class Board:
     ###printing the structure of the board
             print("|", end="")
             for column in row:
-                if column == board.EMPTY_CELL:
+                if column == Board.EMPTY_CELL:
                     print("   |", end="")
                 else:
                     print(f" {column} |", end="")
